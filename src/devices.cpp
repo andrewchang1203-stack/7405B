@@ -3,7 +3,7 @@
 pros::MotorGroup left_motor_group({-11, 12}, pros::MotorGears::blue);
 pros::MotorGroup right_motor_group({18, -19}, pros::MotorGears::blue);
 
-pros::MotorGroup lift({1, 10}, pros::MotorGears::blue);
+pros::MotorGroup lift({-1, 10}, pros::MotorGears::blue);
 
 
 // drivetrain settings
