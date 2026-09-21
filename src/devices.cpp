@@ -51,11 +51,16 @@ lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
                                               0 // maximum acceleration (slew)
 );
 
+lemlib::ExpoDriveCurve throttle(3, 10, 1.019);  //ali code
+lemlib::ExpoDriveCurve steer(3, 10, 1.019);     //ali code
+
 // create the chassis
 lemlib::Chassis chassis(drivetrain, // drivetrain settings
                         lateral_controller, // lateral PID settings
                         angular_controller, // angular PID settings
-                        sensors // odometry sensors
+                        sensors,
+                        &throttle,                  //ali code
+                        &steer// odometry sensors      //ali code
 );
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
