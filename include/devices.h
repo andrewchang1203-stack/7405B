@@ -12,7 +12,7 @@ extern lemlib::Chassis chassis;
 extern lemlib::ControllerSettings lateral_controller;
 extern lemlib::ControllerSettings angular_controller;
 
-extern pros::Motor leftLift;
-extern pros::Motor rightLift;
+
+extern pros::MotorGroup lift;
 
 extern pros::Controller controller;
