@@ -39,6 +39,9 @@
 /**
  * You should add more #includes here
  */
+#include "lemlib/api.hpp" // IWYU pragma: keep
+#include "pros/apix.h" // IWYU pragma: keep
+
 //#include "okapi/api.hpp"
 
 /**

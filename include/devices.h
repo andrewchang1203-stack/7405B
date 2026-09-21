@@ -1,10 +1,8 @@
 #pragma once
+
 #include "main.h"
 #include "pros/adi.hpp"
 #include "pros/misc.hpp"
-#include "lemlib/api.hpp"
-
-
 
 extern pros::MotorGroup left_motor_group;
 extern pros::MotorGroup right_motor_group;
