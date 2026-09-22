@@ -6,21 +6,23 @@
 pros::MotorGroup left_motor_group({-11, 12}, pros::MotorGears::blue);
 pros::MotorGroup right_motor_group({18, -19}, pros::MotorGears::blue);
 
-Lift lift({-1, 10}, 3, 0.6, 0.0, 3.0, 20.0, 0, 720);
+Lift lift({-1, 10}, 3, 1, 0.0, 3.0, 0, 0, 720);
 
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&left_motor_group, // left motor group
                               &right_motor_group, // right motor group
                               10, //track width
-                              lemlib::Omniwheel::NEW_4, // using new 4" omnis
-                              10, // drivetrain rpm is 360
-                              2 // horizontal drift is 2 (for now)
+                              lemlib::Omniwheel::NEW_325,
+                              450, // drivetrain rpm is 360
+                              1 // horizontal drift is 2 (for now)
 );
 
 // imu
-pros::Imu imu(1);
-pros::Rotation horizontal_rotation(0);
+pros::Imu imu(1);   //TEMP PORT NEED TO CHANGE
+
+pros::Rotation horizontal_rotation(0);  //TEMP PORT NEED TO CHANGE
+
 lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_275, -5.75);
 
 lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null

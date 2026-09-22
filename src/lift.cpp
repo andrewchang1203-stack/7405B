@@ -23,7 +23,7 @@ void Lift::start() {
     target = minDeg;
     pid.reset();
 
-    // Runs forever in the background; safe to leave as a local object.
+    // Runs forever in the background
     pros::Task liftTask([this]() { this->loop(); });
 }
 

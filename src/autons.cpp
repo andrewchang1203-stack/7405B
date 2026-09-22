@@ -2,8 +2,7 @@
 #include "devices.h"
 
 void test() {
-    // lift.set_zero_position(0);
-    // lift.move_absolute(90000, 500);
+    lift.setTarget(720); // move lift to 720 degrees
     
     
 }
