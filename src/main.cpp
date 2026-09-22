@@ -3,7 +3,6 @@
 #include "devices.h"
 #include "autons.h"
 
-
 /**
  * A callback function for LLEMU's center button.
  *
@@ -36,6 +35,7 @@ void on_center_button() {
 void initialize() {
     pros::lcd::initialize(); // initialize brain screen
     chassis.calibrate(); // calibrate sensors
+	lift.start(); // start lift PID task
     // print position to brain screen
     pros::Task screen_task([&]() {
         while (true) {
