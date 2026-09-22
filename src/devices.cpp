@@ -6,7 +6,7 @@
 pros::MotorGroup left_motor_group({-11, 12}, pros::MotorGears::blue);
 pros::MotorGroup right_motor_group({18, -19}, pros::MotorGears::blue);
 
-Lift lift({-1, 10}, 3, 1, 0.0, 3.0, 0, 0, 720);
+Lift lift({-1, 10}, 3, 1, 0.0, 3.0, 0, -720, 720);
 
 
 // drivetrain settings
