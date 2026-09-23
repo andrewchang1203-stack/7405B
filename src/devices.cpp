@@ -3,11 +3,12 @@
 #include "main.h"
 #include "lift.h"
 
-pros::MotorGroup left_motor_group({-11, 12}, pros::MotorGears::blue);
-pros::MotorGroup right_motor_group({18, -19}, pros::MotorGears::blue);
+pros::MotorGroup left_motor_group({-10, -16}, pros::MotorGears::blue);
+pros::MotorGroup right_motor_group({7, 19}, pros::MotorGears::blue);
 
-Lift lift({-1, 10}, 3, 1, 0.0, 3.0, 0, -720, 720);
+//pros::MotorGroup cascade({[0]=-2, [1]=11} gearset::pros:MotorGears::blue); // cascade lift motors
 
+pros::MotorGroup cascade {-2,11}; 
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&left_motor_group, // left motor group

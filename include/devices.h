@@ -15,4 +15,4 @@ extern lemlib::ControllerSettings angular_controller;
 extern Lift lift;
 
 extern pros::Controller controller;
-extern Lift lift;
+extern pros::MotorGroup cascade;
