@@ -33,26 +33,33 @@ void on_center_button() {
 // }
 
 void initialize() {
-	cascade.set_brake_mode_all(pros::E_MOTOR_BRAKE_HOLD);
-	left_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
-	right_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
-	chassis.calibrate(); // calibrate sensors
-	pros::delay(1000);
-    pros::lcd::initialize(); // initialize brain screen
+    pros::lcd::initialize();
+
+    left_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
+    right_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
+    cascade.set_brake_mode_all(pros::E_MOTOR_BRAKE_HOLD);
+
+    pros::lcd::print(0, "Calibrating...");
+
+    chassis.calibrate();
+
     chassis.setPose(0, 0, 0);
-	//cascade.start(); // start lift PID task
-    // print position to brain screen
-    pros::Task screen_task([&]() {
+
+    pros::lcd::print(0, "Calibration done");
+
+    pros::Task screen_task([] {
         while (true) {
-            // print robot location to the brain screen
-            pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
-            pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
-            pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
-            // delay to save resources
-            pros::delay(20);
+            lemlib::Pose pose = chassis.getPose();
+
+            pros::lcd::print(0, "X: %.2f", pose.x);
+            pros::lcd::print(1, "Y: %.2f", pose.y);
+            pros::lcd::print(2, "H: %.2f", pose.theta);
+
+            pros::delay(50);
         }
     });
 }
+
 
 /**
  * Runs while the robot is in the disabled state of Field Management System or
@@ -85,7 +92,7 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-	//test();
+	test();
 }
 
 /**
