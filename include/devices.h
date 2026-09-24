@@ -16,3 +16,5 @@ extern Lift lift;
 
 extern pros::Controller controller;
 extern pros::MotorGroup cascade;
+
+extern pros::adi::Pneumatics claw;

@@ -118,22 +118,36 @@ void opcontrol() {
 		//                  (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);  // Prints status of the emulated screen LCDs
 
 		// Arcade control scheme
-		if (controller.get_digital(DIGITAL_R1)) {
-			cascade.move(50);
-		}
 		if (controller.get_digital(DIGITAL_R2)) {
-			cascade.move(-50);
+			cascade.move(-127);
+		}
+		else if (controller.get_digital(DIGITAL_R1)) {
+			cascade.move(127);
+		}
+		else {
+			cascade.move(0);
+		}
 			
+		// }
+		// else{
+		// 	cascade.move(0);
 		}
 		if (controller.get_digital(DIGITAL_L1)) {
-			
+			if(claw.is_extended())
+			{
+				claw.retract();
+			}
+			else
+			{
+				claw.extend();
+			}
+
 		}
 		if (controller.get_digital(DIGITAL_L2)) {
-			
+
 		}
 		
 
 		
 		pros::delay(20);                               // Run for 20 ms then update
 	}
-}
