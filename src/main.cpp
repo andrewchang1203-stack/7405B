@@ -128,11 +128,11 @@ void opcontrol() {
 			cascade.move(0);
 		}
 	
-		if (controller.get_digital(DIGITAL_A)) {
+		if (controller.get_digital(DIGITAL_L1)) {
 			claw.set_value(true);
 		}
 
-		if (controller.get_digital(DIGITAL_B)) {
+		if (controller.get_digital(DIGITAL_L2)) {
 			claw.set_value(false);
 		}
 		
