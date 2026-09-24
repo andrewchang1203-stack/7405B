@@ -3,8 +3,8 @@
 #include "main.h"
 #include "lift.h"
 
-pros::MotorGroup left_motor_group({-10, -16}, pros::MotorGears::blue);
-pros::MotorGroup right_motor_group({7, 19}, pros::MotorGears::blue);
+pros::MotorGroup left_motor_group({10, 16}, pros::MotorGears::blue);
+pros::MotorGroup right_motor_group({-7, -19}, pros::MotorGears::blue);
 
 //pros::MotorGroup cascade({[0]=-2, [1]=11} gearset::pros:MotorGears::blue); // cascade lift motors
 

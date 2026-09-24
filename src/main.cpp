@@ -111,8 +111,8 @@ void opcontrol() {
 	while (true) {
 		int dir = master.get_analog(ANALOG_LEFT_Y);    // Gets amount forward/backward from left joystick
 		int turn = master.get_analog(ANALOG_RIGHT_X);  // Gets the turn left/right from right joystick
-		left_motor_group.move(dir + turn);                      // Sets left motor voltage
-		right_motor_group.move(dir - turn);                     // Sets right motor voltage
+		left_motor_group.move(dir - turn);                      // Sets left motor voltage
+		right_motor_group.move(dir + turn);                     // Sets right motor voltage
 		// pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
 		//                  (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 		//                  (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);  // Prints status of the emulated screen LCDs
@@ -128,13 +128,10 @@ void opcontrol() {
 			cascade.move(0);
 		}
 	
-		if (controller.get_digital(DIGITAL_L1)) {
-			claw.set_value(true);
+		if (controller.get_digital_new_press(DIGITAL_L1)) {
+			claw.toggle();
 		}
-
-		if (controller.get_digital(DIGITAL_L2)) {
-			claw.set_value(false);
-		}
+		
 		
 		pros::delay(20);                               // Run for 20 ms then update
 	}
