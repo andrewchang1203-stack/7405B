@@ -127,27 +127,15 @@ void opcontrol() {
 		else {
 			cascade.move(0);
 		}
-			
-		// }
-		// else{
-		// 	cascade.move(0);
+	
+		if (controller.get_digital(DIGITAL_A)) {
+			claw.set_value(true);
 		}
-		if (controller.get_digital(DIGITAL_L1)) {
-			if(claw.is_extended())
-			{
-				claw.retract();
-			}
-			else
-			{
-				claw.extend();
-			}
 
+		if (controller.get_digital(DIGITAL_B)) {
+			claw.set_value(false);
 		}
-		if (controller.get_digital(DIGITAL_L2)) {
-
-		}
-		
-
 		
 		pros::delay(20);                               // Run for 20 ms then update
 	}
+}

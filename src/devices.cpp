@@ -13,18 +13,18 @@ pros::MotorGroup cascade {-2,11};
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&left_motor_group, // left motor group
                               &right_motor_group, // right motor group
-                              10, //track width
+                              10.9, //track width
                               lemlib::Omniwheel::NEW_325,
                               450, // drivetrain rpm is 360
                               1 // horizontal drift is 2 (for now)
 );
 
 // imu
-pros::Imu imu(1);   //TEMP PORT NEED TO CHANGE
+pros::Imu imu(3);
 
-pros::Rotation horizontal_rotation(0);  //TEMP PORT NEED TO CHANGE
+pros::Rotation horizontal_rotation(17);
 
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_275, -5.75);
+lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_2, 1.8);
 
 lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null
                             nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
@@ -74,7 +74,7 @@ lemlib::Chassis chassis(drivetrain, // drivetrain settings
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
-pros::adi::Pneumatics claw = pros::adi::Pneumatics('A', true);
+pros::adi::Pneumatics claw = pros::adi::Pneumatics('B', false);
 
 
 // initialize function. Runs on program startup
