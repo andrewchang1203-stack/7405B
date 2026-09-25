@@ -35,14 +35,12 @@ void on_center_button() {
 void initialize() {
     pros::lcd::initialize();
 
-    left_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
-    right_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
     cascade.set_brake_mode_all(pros::E_MOTOR_BRAKE_HOLD);
 
     pros::lcd::print(0, "Calibrating...");
 
     chassis.calibrate();
-
+	pros::delay(1000);//delay for thought
     chassis.setPose(0, 0, 0);
 
     pros::lcd::print(0, "Calibration done");

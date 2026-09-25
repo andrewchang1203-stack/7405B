@@ -6,4 +6,6 @@ void test() {
     chassis.setPose(0, 0, 0);
     // turn to face heading 90 with a very long timeout
     chassis.turnToHeading(90, 3000);
+    //chassis.moveToPoint(0, 10, 5000);
+    // chassis.moveToPoint(0, 30, 1000);
 }
