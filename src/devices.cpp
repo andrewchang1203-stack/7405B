@@ -3,8 +3,8 @@
 #include "main.h"
 #include "lift.h"
 
-pros::MotorGroup left_motor_group({-7, -19}, pros::MotorGears::blue);
-pros::MotorGroup right_motor_group({10, 16}, pros::MotorGears::blue);
+pros::MotorGroup left_motor_group({-10, -16}, pros::MotorGears::blue);
+pros::MotorGroup right_motor_group({7, 19}, pros::MotorGears::blue);
 
 //pros::MotorGroup cascade({[0]=-2, [1]=11} gearset::pros:MotorGears::blue); // cascade lift motors
 
@@ -22,9 +22,9 @@ lemlib::Drivetrain drivetrain(&left_motor_group, // left motor group
 // imu
 pros::Imu imu(3);
 
-pros::Rotation horizontal_rotation(17);
+pros::Rotation horizontal_rotation(-17);
 
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_2, 1.8);
+lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_2, -1.8);
 
 lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null
                             nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs

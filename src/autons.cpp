@@ -1,18 +1,38 @@
 #include "main.h"
 #include "devices.h"
 
-void test() {
-    // set position to x:0, y:0, heading:0
+void far() {
     chassis.setPose(0, 0, 0);
-    // turn to face heading 90 with a very long timeout
-    //chassis.turnToHeading(90, 3000);
-    cascade.move_absolute(720, 127);
+    cascade.move_absolute(1320, 127);
     pros::delay(200);
-    chassis.moveToPoint(0, 5, 500);
-    chassis.moveToPoint(0, -20, 1000, {.forwards = false, .minSpeed = 127});
+    chassis.moveToPoint(0, -10, 500, {.forwards = false});
+    chassis.moveToPoint(0, 10, 1000, {.maxSpeed = 70});
     pros::delay(500);
-    chassis.moveToPoint(0,8.3,1000);
-    chassis.turnToHeading(90,1000);
-    
-    // chassis.moveToPoint(0, 30, 1000);
+    chassis.moveToPoint(0, -12.5, 1000, {.forwards = false});
+    chassis.turnToHeading(-90, 1000);
+    chassis.moveToPoint(20, -12.5, 1500, {.forwards = false});
+    chassis.waitUntilDone();
+    cascade.move_absolute(0, 127);
+    claw.toggle();
+}
+
+void close() {
+    chassis.setPose(0, 0, 0);
+    cascade.move_absolute(1320, 127);
+    pros::delay(200);
+    chassis.moveToPoint(0, -10, 500, {.forwards = false});
+    chassis.waitUntilDone();
+    chassis.moveToPoint(0, 10, 1000, {.maxSpeed = 50});
+    pros::delay(500);
+    chassis.moveToPoint(0, -7, 500, {.forwards = false});
+    chassis.waitUntilDone();
+    chassis.moveToPoint(0, 10, 1000, {.maxSpeed = 50});
+    pros::delay(500);
+    chassis.moveToPoint(0, -12.7, 1000, {.forwards = false});
+    chassis.turnToHeading(90, 1000);
+    chassis.moveToPoint(-20, -12.7, 1500, {.forwards = false});
+    chassis.waitUntilDone();
+    cascade.move_absolute(350, 127);
+    pros::delay(200);
+    claw.toggle();
 }
