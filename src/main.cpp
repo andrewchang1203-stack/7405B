@@ -90,7 +90,7 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-	close();
+	far2();
 }
 
 /**
