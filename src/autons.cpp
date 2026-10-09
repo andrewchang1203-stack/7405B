@@ -1,5 +1,12 @@
 #include "main.h"
 #include "devices.h"
+#include "lift.h"
+
+void test(){
+    chassis.setPose(0, 0,0);
+    lift.setTarget(2);
+    lift.waitUntilSettled(10000);
+}
 
 void far() {
     chassis.setPose(0, 0, 0);

@@ -40,6 +40,7 @@ void initialize() {
     pros::lcd::print(0, "Calibrating...");
 
     chassis.calibrate();
+	lift.start();
 	pros::delay(1000);//delay for thought
     chassis.setPose(0, 0, 0);
 
@@ -90,7 +91,7 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-	far2();
+	test();
 }
 
 /**
@@ -107,6 +108,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	left_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
 	right_motor_group.set_brake_mode_all(pros::E_MOTOR_BRAKE_COAST);
@@ -124,10 +126,12 @@ void opcontrol() {
 
 		// Arcade control scheme
 		if (controller.get_digital(DIGITAL_R2)) {
-			cascade.move(-127);
+			//cascade.move(-127);
+			lift.setTarget(0);
 		}
 		else if (controller.get_digital(DIGITAL_R1)) {
-			cascade.move(127);
+			cascade.move(1);
+			left_motor_group.move_voltage(50);
 		}
 		else {
 			cascade.move(0);
