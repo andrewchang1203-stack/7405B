@@ -10,7 +10,8 @@
 extern pros::MotorGroup left_motor_group;
 extern pros::MotorGroup right_motor_group;
 extern pros::MotorGroup cascade;
-extern Lift lift;
+extern pros::Motor toggle;
+//extern Lift lift;
 
 // sensors
 extern pros::Imu imu;

@@ -40,7 +40,7 @@ void initialize() {
     pros::lcd::print(0, "Calibrating...");
 
     chassis.calibrate();
-	lift.start();
+	//lift.start();
 	pros::delay(1000);//delay for thought
     chassis.setPose(0, 0, 0);
 
@@ -126,21 +126,26 @@ void opcontrol() {
 
 		// Arcade control scheme
 		if (controller.get_digital(DIGITAL_R2)) {
-			//cascade.move(-127);
-			lift.setTarget(0);
+			cascade.move(127);
+			//lift.setTarget(0);
 		}
 		else if (controller.get_digital(DIGITAL_R1)) {
-			cascade.move(1);
-			left_motor_group.move_voltage(50);
+			cascade.move(-127);
+			//left_motor_group.move_voltage(50);
 		}
 		else {
-			cascade.move(0);
+			cascade.move(0); 
 		}
 	
-		if (controller.get_digital_new_press(DIGITAL_L1)) {
+		if (controller.get_digital_new_press(DIGITAL_L2)) {
 			claw.toggle();
 		}
-		
+		if (controller.get_digital(DIGITAL_L1)){
+			toggle.move(-127);
+		}
+		else{
+			toggle.move(0);
+		}
 		
 		pros::delay(20);                               // Run for 20 ms then update
 	}
