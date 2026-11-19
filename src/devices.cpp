@@ -10,8 +10,11 @@
 // ml10
 // mr 1
 //
-//
-//
+//distance sensors:
+//forward: none  :3
+//backward: 4cm
+//right: 29-17.5cm
+//left: 11.5cm
 pros::MotorGroup left_motor_group({-9, -8, -10}, pros::MotorGears::blue);
 pros::MotorGroup right_motor_group({1, 2, 3 /*1 idk yet its broken gng touch yourself neil*/}, pros::MotorGears::blue);
 
@@ -35,8 +38,13 @@ lemlib::Drivetrain drivetrain(&left_motor_group,  // left motor group
 pros::Imu imu(3);
 
 pros::Rotation horizontal_rotation(17);
+pros::Rotation vertical_rotation(18);
 
-lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_2, 1.8);
+//vertical 3.5
+//hroizontal
+
+lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_2, 3.5);
+lemlib::TrackingWheel vertical_tracking_wheel(&vertical_rotation, lemlib::Omniwheel::NEW_2, 5.5);
 
 lemlib::OdomSensors sensors(nullptr,                    // vertical tracking wheel 1, set to null
                             nullptr,                    // vertical tracking wheel 2, set to nullptr as we are using IMEs
