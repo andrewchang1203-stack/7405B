@@ -15,13 +15,13 @@
 //backward: 4cm
 //right: 29-17.5cm
 //left: 11.5cm
-pros::MotorGroup left_motor_group({-9, -8, -10}, pros::MotorGears::blue);
-pros::MotorGroup right_motor_group({1, 2, 3 /*1 idk yet its broken gng touch yourself neil*/}, pros::MotorGears::blue);
+pros::MotorGroup left_motor_group({-4, -3, -2}, pros::MotorGears::blue);
+pros::MotorGroup right_motor_group({7, 8, 9 /*1 idk yet its broken gng touch yourself neil*/}, pros::MotorGears::blue);
 
 // pros::MotorGroup cascade({[0]=-2, [1]=11} gearset::pros:MotorGears::blue); // cascade lift motors
 
-pros::MotorGroup cascade{ 4, -7};
-pros::Motor toggle{6};
+pros::MotorGroup cascade{ 5, -6};
+pros::Motor toggle{10};
 //Lift lift({-4, 7}, 9, 0.1, 0.0, 0.0, 0.0, -1000, 1000);
 
 // drivetrain settings

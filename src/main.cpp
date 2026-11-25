@@ -127,10 +127,12 @@ void opcontrol() {
 		// Arcade control scheme
 		if (controller.get_digital(DIGITAL_R2)) {
 			cascade.move(127);
+			toggle.move(127);
 			//lift.setTarget(0);
 		}
 		else if (controller.get_digital(DIGITAL_R1)) {
 			cascade.move(-127);
+			toggle.move(-127);
 			//left_motor_group.move_voltage(50);
 		}
 		else {
