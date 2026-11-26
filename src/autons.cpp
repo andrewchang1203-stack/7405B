@@ -4,7 +4,7 @@
 
 void test(){
     chassis.setPose(0, 0,0);
-    chassis.moveToPoint(0, 48, 1000);
+    chassis.turnToHeading(180, 6000);
     chassis.waitUntilDone();
 }
 
