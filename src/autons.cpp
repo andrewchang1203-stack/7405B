@@ -4,9 +4,8 @@
 
 void test(){
     chassis.setPose(0, 0,0);
-    toggle.move(-127);
-    pros::delay(1000);
-    toggle.move(0);
+    chassis.moveToPoint(0, 48, 1000);
+    chassis.waitUntilDone();
 }
 
 void far() {

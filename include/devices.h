@@ -17,6 +17,8 @@ extern pros::Motor toggle;
 extern pros::Imu imu;
 extern pros::Rotation horizontal_rotation;
 extern lemlib::TrackingWheel horizontal_tracking_wheel;
+extern pros::Rotation vertical_rotation;
+extern lemlib::TrackingWheel vertical_tracking_wheel;
 extern lemlib::OdomSensors sensors;
 
 // lemlib config

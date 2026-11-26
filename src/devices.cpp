@@ -16,7 +16,7 @@
 //right: 29-17.5cm
 //left: 11.5cm
 pros::MotorGroup left_motor_group({-4, -3, -2}, pros::MotorGears::blue);
-pros::MotorGroup right_motor_group({7, 8, 9 /*1 idk yet its broken gng touch yourself neil*/}, pros::MotorGears::blue);
+pros::MotorGroup right_motor_group({7, 8, 9}, pros::MotorGears::blue);
 
 // pros::MotorGroup cascade({[0]=-2, [1]=11} gearset::pros:MotorGears::blue); // cascade lift motors
 
@@ -24,7 +24,7 @@ pros::MotorGroup cascade{ 5, -6};
 pros::Motor toggle{10};
 //Lift lift({-4, 7}, 9, 0.1, 0.0, 0.0, 0.0, -1000, 1000);
 
-// drivetrain settings
+// drivetrain setting
 lemlib::Drivetrain drivetrain(&left_motor_group,  // left motor group
                               &right_motor_group, // right motor group
                               10.9,               // track width
@@ -35,10 +35,10 @@ lemlib::Drivetrain drivetrain(&left_motor_group,  // left motor group
 
 
 // imu
-pros::Imu imu(3);
+pros::Imu imu(11);
 
-pros::Rotation horizontal_rotation(17);
-pros::Rotation vertical_rotation(18);
+pros::Rotation horizontal_rotation(18);
+pros::Rotation vertical_rotation(-19);
 
 //vertical 3.5
 //hroizontal
@@ -46,7 +46,7 @@ pros::Rotation vertical_rotation(18);
 lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_rotation, lemlib::Omniwheel::NEW_2, 3.5);
 lemlib::TrackingWheel vertical_tracking_wheel(&vertical_rotation, lemlib::Omniwheel::NEW_2, 5.5);
 
-lemlib::OdomSensors sensors(nullptr,                    // vertical tracking wheel 1, set to null
+lemlib::OdomSensors sensors(&vertical_tracking_wheel,                    // vertical tracking wheel 1, set to null
                             nullptr,                    // vertical tracking wheel 2, set to nullptr as we are using IMEs
                             &horizontal_tracking_wheel, // horizontal tracking wheel 1
                             nullptr,                    // horizontal tracking wheel 2, set to nullptr as we don't have a second one
@@ -64,13 +64,13 @@ lemlib::OdomSensors sensors(nullptr,                    // vertical tracking whe
 //                                               500, // large error range timeout, in milliseconds
 //                                               20 // maximum acceleration (slew)
 // );
-lemlib::ControllerSettings lateral_controller(6,   // proportional gain (kP)
+lemlib::ControllerSettings lateral_controller(4.5,   // proportional gain (kP)
                                               0,   // integral gain (kI)
-                                              5,   // derivative gain (kD)
+                                              0,   // derivative gain (kD)
                                               3,   // anti windup
                                               1,   // small error range, in inches
                                               100, // small error range timeout, in milliseconds
-                                              3,   // large error range, in inches
+                                              2,   // large error range, in inches
                                               500, // large error range timeout, in milliseconds
                                               20   // maximum acceleration (slew)
 );
@@ -86,9 +86,9 @@ lemlib::ControllerSettings lateral_controller(6,   // proportional gain (kP)
 //                                               500, // large error range timeout, in milliseconds
 //                                               0 // maximum acceleration (slew)
 // );
-lemlib::ControllerSettings angular_controller(2,    // proportional gain (kP)
+lemlib::ControllerSettings angular_controller(0,    // proportional gain (kP)
                                               0,    // integral gain (kI)
-                                              13.5, // derivative gain (kD)
+                                              0, // derivative gain (kD)
                                               3,    // anti windup
                                               1,    // small error range, in inches
                                               100,  // small error range timeout, in milliseconds
